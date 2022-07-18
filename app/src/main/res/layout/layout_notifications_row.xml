@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.4"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Vehicle is parked"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:fontFamily="@font/lato"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The time will be counted down"
+                android:padding="10dp"
+                android:textColor="#677191"
+                android:textSize="14sp"
+                android:fontFamily="@font/lato"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:text="Now"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/lato"/>
+
+    </LinearLayout>
+
+</LinearLayout>

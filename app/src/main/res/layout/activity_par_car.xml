@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ParCarActivity"
+    android:background="#F7F7F7"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:onClick="backPressed"
+            android:background="@drawable/rectangle_back">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_arrow"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="Park a Car"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/rounded_rectangle_white">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:id="@+id/text_new"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/rectangle_red"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View"
+            android:gravity="center"
+            android:id="@+id/text_view"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/rectangle_gray"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:id="@+id/layout_add_park_car"
+
+            android:padding="10dp"
+            android:background="@color/white">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Number Plate"
+                android:fontFamily="@font/lato"
+                android:id="@+id/edittext_number_plate"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Parking Bay No"
+                android:fontFamily="@font/lato"
+                android:inputType="text"
+                android:id="@+id/edittext_parking_bay_no"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:background="@drawable/rounded_rectangle"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:inputType="phone"
+                    android:text="+263"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/edittext_country_code"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lato"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_rectangle"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone No."
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:id="@+id/edittext_phone_number"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lato"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_rectangle"/>
+
+            </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email ID"
+                android:padding="8dp"
+                android:inputType="textEmailAddress"
+                android:layout_margin="10dp"
+                android:id="@+id/edittext_email_id"
+
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_primary"
+                android:text="Submit"
+                android:textSize="16sp"
+                android:id="@+id/text_submit_car_park"
+                android:textStyle="bold"
+                android:fontFamily="@font/lato"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:layout_above="@+id/layout_bottom"
+            android:id="@+id/layout_view_car_park"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4.5">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1.5"
+                    android:text="Date &amp; Time"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="11sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1"
+                    android:text="Plate No"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="11sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1"
+                    android:text="Bay No"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="11sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1"
+                    android:text="Status"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerview_park_car_list"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:id="@+id/layout_update_car_park"
+            android:layout_above="@+id/layout_bottom"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:background="@color/white">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:hint="Number Plate"
+                android:fontFamily="@font/lato"
+                android:inputType="text"
+                android:id="@+id/edittext_number_plate1"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:hint="Parking Bay No"
+                android:id="@+id/edittext_parking_bay_no1"
+                android:inputType="text"
+                android:fontFamily="@font/lato"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:background="@drawable/rounded_rectangle"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint=""
+                    android:padding="8dp"
+                    android:inputType="phone"
+                    android:text="+263"
+                    android:gravity="center"
+                    android:layout_marginBottom="6dp"
+                    android:id="@+id/edittext_country_code1"
+                    android:layout_marginTop="6dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lato"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/rounded_rectangle"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone No."
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:id="@+id/edittext_phone_number1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/lato"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/rounded_rectangle"/>
+
+            </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email ID"
+                android:padding="8dp"
+                android:inputType="textEmailAddress"
+                android:id="@+id/edittext_email_id1"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Start Date &amp; Time"
+                android:padding="8dp"
+                android:inputType="text"
+                android:id="@+id/edittext_start_date"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="10dp"
+                android:editable="false"
+                android:focusable="false"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="End Date &amp; Time"
+                android:padding="8dp"
+                android:id="@+id/edittext_end_date"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="text"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Amount to be Collected "
+                android:padding="8dp"
+                android:id="@+id/edittext_amount_to_be_collected"
+                android:inputType="number"
+                android:layout_margin="6dp"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Currency"
+                android:editable="false"
+                android:focusable="false"
+                android:padding="8dp"
+                android:text="USD"
+                android:id="@+id/edittext_currency"
+                android:inputType="number"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="6dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Amount Owed"
+                android:id="@+id/edittext_amount_owed"
+                android:padding="8dp"
+                android:inputType="number"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="6dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/lato"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_rectangle"/>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/button_primary"
+                            android:text="Pay"
+                            android:id="@+id/text_update_car_park"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/white"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/button_primary"
+                            android:text="Not Paid"
+                            android:id="@+id/text_unpaid_car_park"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/white"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:background="@color/white"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:id="@+id/layout_bottom"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_home"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_profile"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/user_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:id="@+id/image_scan"
+                android:src="@drawable/scan"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_invoice"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/invoice_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Invoice"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_logout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logout_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

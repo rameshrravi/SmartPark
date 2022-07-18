@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_home_page.xml" value="0.15885416666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_invoice.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_nfc.xml" value="0.18854166666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_par_car.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_parking_marshal_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_precincts_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_printer.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_site_manager_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_success.xml" value="0.25" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_supervisior.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_supervisor_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_park_car_list_row.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

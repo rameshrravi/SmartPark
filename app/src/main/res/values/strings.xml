@@ -1,0 +1,246 @@
+<resources>
+    <string name="app_name">Smart Park</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="message_write_error">Error Writing Message !</string>
+    <string name="message_write_success">Successfully written to Tag !</string>
+    <string name="message_write_progress">Writing to Tag..</string>
+    <string name="message_tag_detected">NFC Tag Detected !</string>
+    <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
+    <string name="message_write_tag">Write to NFC Tag</string>
+    <string name="message_read_tag">Read from NFC Tag</string>
+
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <string name="msg1"><font style="bold" color="#000" font="@font/lato" size="22">SMART PARK\nPAY &amp; DISPLAY TICKET</font></string>
+
+
+    <string name="msg"><html lang="en"><body class="bg-theme bg-theme8">
+      <!--wrapper-->
+        <div class="wrapper">
+
+         <!--start page wrapper -->
+            <!--start page wrapper -->
+            <div class="page-wrapper">
+            <div class="page-content">
+               <div class="card">
+                  <div class="card-body p-4">
+                     <div class="form-body">
+                        <div class="row">
+                           <div class="col-xl-8 mx-auto">
+
+
+                              <div style="box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);padding: 2mm;margin: 0 auto;width: 100mm;background: #FFF;font-family: 'Barlow Condensed', sans-serif;font-weight: 500;" id="invoice-POS">
+                                 <center id="top">
+                                    <div style="display: block;margin-left: 0;" class="info">
+                                       <h2 style="font-size: 1.9em;color: #000;font-weight: bold;margin-top: 0.5rem;">SMART PARK</h2>
+                                       <p style="word-spacing: 30px;font-size: 1.3em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="legal"><strong>  PAY &amp; DISPLAY TICKET </strong></p>
+                                       <p style="word-spacing: 30px;font-size: 1.3em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="legal"><strong>*DISPLAY ON DASHBOARD*</strong></p>
+                                       <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">TICKET VALID ON THIS BAY ONLY</p>
+                                    </div>
+                                     <!--End Info-->
+                                 </center>
+                                  <!--End InvoiceTop-->
+                                  <!--  <div id='mid'>
+                                      <div class='info'>
+
+                                         <p>
+                                            Address : street city, state 0000</br>
+                                            Email   : JohnDoe@gmail.com</br>
+                                            Phone   : 555-555-5555</br>
+                                         </p>
+                                      </div>
+                                   </div> -->
+                                  <!--End Invoice Mid-->
+                                  <div style="min-height: 50px;margin-top: 30px;" id="bot">
+                                    <div id="table">
+                                       <table style="width: 100%;border-collapse: collapse;">
+                                         <!--  <tr class='tabletitle'>
+                                             <td class='item'>
+                                                <h2>Item</h2>
+                                             </td>
+                                             <td class='Hours'>
+                                                <h2>Qty</h2>
+                                             </td>
+                                             <td class='Rate'>
+                                                <h2>Sub Total</h2>
+                                             </td>
+                                          </tr> -->
+                                           <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Bulawayo</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Tax Invoice: 85501753</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Bulawayo_3</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">VAT #10080261</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Tendy Three Invesments</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Precinct: BULA1A75</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">Marshal: RZBU0002</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">TIME VEHICLE PARKED:</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">11:55 WED 6 APR 2022</p>
+                                             </td>
+                                          </tr>
+
+                                        </table>
+
+                                        <table style="width: 100%;border-collapse: collapse;">
+
+                                          <tr style="font-size: 0.5em;background: #2b2929;text-align: center;word-spacing: 20px;" class="tabletitle">
+
+                                             <td class="Rate">
+                                                <h2 style="color: #fff;font-size: 1.9em;font-weight: bold;margin-top: 0.5rem;">PARK TIME PAID UNTIL</h2>
+                                             </td>
+
+                                          </tr>
+                                       </table>
+                                    </div>
+                                      <!--End Table-->
+                                      <div style="margin-top: 5mm;" id="legalcopy">
+                                       <p style="font-size: 60px;color: #666;line-height: 1.2em;margin-bottom: 5px;text-align: center;" class="legal1"><strong>12:55</strong>
+                                       </p>
+
+
+                                      <center><h2 style="font-size: 1.9em;color: #000;font-weight: bold;margin-top: 0.5rem;">WED 6 APR 2022</h2></center>
+
+                                      <center><h2 style="font-size: 1.9em;color: #000;font-weight: bold;margin-top: 0.5rem;">VEHICLE: AFL7226</h2></center>
+
+                                      <center><h2 style="font-size: 1.9em;color: #000;font-weight: bold;margin-top: 0.5rem;">BAY NUMBER: R89</h2></center>
+
+
+                                    </div>
+
+
+                                     <table style="width: 100%;border-collapse: collapse;">
+
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">PARKING FEE PAID (including VAT): </p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">US$ 1.00</p>
+                                             </td>
+                                          </tr>
+
+                                           <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"> </p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">---------</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">VAT:</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">US$ 0.13</p>
+                                             </td>
+                                          </tr>
+                                          <tr class="service">
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">DATE PURCHASED:</p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext"></p>
+                                             </td>
+                                             <td class="tableitem">
+                                                <p style="font-size: 1.0em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="itemtext">12:03 WED 6 APR 2022</p>
+                                             </td>
+                                          </tr>
+
+
+                                        </table>
+
+
+                                        <div style="margin-top: 5mm;" id="legalcopy">
+            <p style="font-size: 1.3em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="">The Municipality of this town or any system participants are not in any way liable for damage or loss, Any inquires, complaints or requests can be lodged to : Tendy Three Investments (Pvt) Ltd.
+            </p>
+
+
+          </div>
+
+           <h4 style="color: #666; text-align: center;"> Contact Number: 029 227 0048</h4>
+
+            <div style="margin-top: 5mm;" id="legalcopy">
+            <p style="font-size: 1.3em;color: #666;line-height: 1.2em;margin-bottom: 5px;" class="">Please check the ticket and change while leaving the marshal as mistakes cars will rectified later
+            </p>
+
+
+          </div>
+
+
+                                 </div>
+                                  <!--End InvoiceBot-->
+                              </div>
+                               <!--End Invoice-->
+                           </div>
+                        </div>
+                         <!--end row-->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+            <!--end page wrapper -->
+            <!--end page wrapper -->
+      </div>
+        <!--end wrapper-->
+   </body>
+</html></string>
+
+
+</resources>

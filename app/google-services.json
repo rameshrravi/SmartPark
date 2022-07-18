@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618539209446",
+    "project_id": "smart-park-dbf49",
+    "storage_bucket": "smart-park-dbf49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618539209446:android:d90bd977ab8275d6bd2127",
+        "android_client_info": {
+          "package_name": "com.smartpark.smartpark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618539209446-l33r2toejf8r0506rrdbt4hj35v5b8rj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5FlKTAE-ZOcbwu3E542WCewCF6CgRy-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618539209446-l33r2toejf8r0506rrdbt4hj35v5b8rj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalInfoActivity"
+    android:background="#F7F7F7"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="backPressed"
+            android:gravity="center"
+            android:background="@drawable/rectangle_back">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_arrow"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="Personal Info"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Login ID"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/text_login_id"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+
+                    android:text="MID123"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Password"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:id="@+id/text_password"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+
+                    android:text="12345"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="First Name"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:id="@+id/text_first_name"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+
+                    android:text="James"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Last Name"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:id="@+id/text_last_name"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+
+                    android:text="Clerk"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Email ID"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:id="@+id/text_email_id"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+
+                    android:text="example@gmail.com"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Phone No."/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+                    android:id="@+id/text_phone_number"
+                    android:text="9876543210"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="Logout Pin"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/right_arrow_small"
+                    android:textColor="#02092A"
+                    android:fontFamily="@font/lato"
+                    android:textSize="9sp"
+                    android:id="@+id/text_logout_pin"
+                    android:text="0987"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:background="@color/white"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:id="@+id/layout_bottom"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_home"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:src="@drawable/home_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_profile"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/user_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:id="@+id/image_scan"
+                android:src="@drawable/scan"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_invoice"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:src="@drawable/invoice_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Invoice"
+
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/layout_logout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logout_icon"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#677191"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/lato"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

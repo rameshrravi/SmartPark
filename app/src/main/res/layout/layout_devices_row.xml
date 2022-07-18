@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_container"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="8dip"
+        android:fontFamily="@font/lato"
+        android:id="@+id/text_name"
+        android:textSize="18sp"
+        android:text="Bluetooth Printers"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+android:id="@+id/text_address"
+        android:padding="8dip"
+        android:fontFamily="@font/lato"
+        android:textSize="14sp"
+        android:text="Bluetooth Printers"
+        android:textColor="@color/black"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black"/>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true"/>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">demosmartpark.caploc.io</domain>
+        <domain includeSubdomains="true">caploc.io</domain>
+        <domain includeSubdomains="true">demo6.maxwellserver.com/</domain>
+
+
+       <!-- <domain includeSubdomains="true">notsecure.com</domain>
+        <domain includeSubdomains="false">xxx.xxx.xxx</domain>-->
+    </domain-config>
+</network-security-config>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_logout"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Logout Pin"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#02092A"
+        android:fontFamily="@font/lato"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/edittext_logout_pin"
+        android:inputType="numberPassword"
+        android:textColor="@color/black"
+        android:background="@drawable/ogout_edittext"
+        android:fontFamily="@font/lato"
+        android:padding="6dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_cancel"
+            android:text="Cancel"
+            android:layout_margin="10dp"
+            android:id="@+id/text_no"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_ok"
+            android:text="Ok"
+            android:layout_margin="10dp"
+            android:id="@+id/text_yes"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/lato"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.smartpark.smartpark">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartPark">
+        <activity
+            android:name=".SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TransactionDetailsActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".NfcActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".PrinterSettigsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeviceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrinterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScanActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SupervisorLoginActivity1"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".SupervisorLoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".SupervisiorActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".ParkingDetailsActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".PersonalInfoActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".InvoiceActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".ParCarActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".HomePageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".ParkingMarshalLoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".ParkingMarshalListActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".PrecinctsListActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".SiteManagerLoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".SiteManagerActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="android.nfc.action.TECH_DISCOVERED"
+            android:resource="@xml/nfc_tech_filter" />
+    </application>
+
+</manifest>
