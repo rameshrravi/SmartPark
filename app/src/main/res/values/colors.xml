@@ -15,4 +15,6 @@
     <color name="green">#008000</color>
     <color name="red">#FF0000</color>
     <color name="red1">#EB5050</color>
+    <color name="orange">#FF9800</color>
+    <color name="rednew">#DC0A0A</color>
 </resources>

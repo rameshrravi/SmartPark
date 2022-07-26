@@ -1272,12 +1272,17 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
             holder.tv_date_time.setText(siteManagerModel.getDateFormat());
             holder.tv_plate_no.setText(siteManagerModel.getPlateNo());
             holder.tv_bay_no.setText(siteManagerModel.getBayNo());
-            holder.tv_status.setText(siteManagerModel.getStatus());
+
 
             if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")) {
-                holder.tv_status.setTextColor(context.getResources().getColor(R.color.red));
+                holder.tv_status.setText("Unpaid");
+                holder.tv_status.setTextColor(context.getResources().getColor(R.color.orange));
             } else if (siteManagerModel.getStatus().equalsIgnoreCase("paid")) {
+                holder.tv_status.setText("Paid");
                 holder.tv_status.setTextColor(context.getResources().getColor(R.color.green));
+            }else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
+                holder.tv_status.setText("Not Paid");
+                holder.tv_status.setTextColor(context.getResources().getColor(R.color.red));
             }
 
             holder.linearLayoutContainer.setOnClickListener(new View.OnClickListener() {
@@ -1315,7 +1320,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                     int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
                     System.out.println("dateDifference: " + dateDifference);
                     System.out.println("dateDifference: " + parkingFee);
-                    if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")||siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
+                    if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")) {
                         tv_update.setVisibility(View.VISIBLE);
                         text_unpaid_car_park.setVisibility(View.VISIBLE);
                         et_currency.setText("USD");
@@ -1328,6 +1333,11 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                             et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                             et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                         }
+                    }else if(siteManagerModel.getStatus().equalsIgnoreCase("notpaid")){
+                        tv_update.setVisibility(View.GONE);
+                        text_unpaid_car_park.setVisibility(View.GONE);
+                        et_start_date.setText(siteManagerModel.getDateTime());
+                        et_end_date.setText(siteManagerModel.getEnddateformat());
                     } else {
                         tv_update.setVisibility(View.GONE);
                         text_unpaid_car_park.setVisibility(View.GONE);

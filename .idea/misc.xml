@@ -4,18 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_home_page.xml" value="0.15885416666666666" />
-        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_invoice.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_invoice.xml" value="0.22" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_login.xml" value="0.18854166666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_nfc.xml" value="0.18854166666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_par_car.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_parking_marshal_list.xml" value="0.16197916666666667" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_parking_marshal_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_personal_info.xml" value="0.25" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_precincts_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_printer.xml" value="0.33" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_site_manager_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_success.xml" value="0.25" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_supervisior.xml" value="0.20416666666666666" />
         <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/activity_supervisor_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_park_car_list_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/fragment_home.xml" value="0.18854166666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_invoice_list_row.xml" value="0.16770833333333332" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_logout_dialog.xml" value="0.18854166666666666" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_park_car_list_row.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/layout/layout_parking_details_row.xml" value="0.33" />
+        <entry key="..\:/Raj/SmartPark/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

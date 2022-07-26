@@ -31,15 +31,15 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/lato"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:text="Invoice"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Invoice"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 </RelativeLayout>
 
     <RelativeLayout

@@ -33,12 +33,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="@color/black"
             android:fontFamily="@font/lato"
-            android:textSize="20sp"
             android:gravity="center"
-            android:text="Park a Car"/>
+            android:padding="10dp"
+            android:text="Park a Car"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -416,7 +416,7 @@
                         <TextView
                             android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="32dp"
                             android:layout_margin="10dp"
                             android:background="@drawable/button_primary"
                             android:text="Pay"
@@ -431,7 +431,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:background="@drawable/button_primary"
+                            android:background="@drawable/rectangle_red"
                             android:text="Not Paid"
                             android:id="@+id/text_unpaid_car_park"
                             android:textSize="16sp"
