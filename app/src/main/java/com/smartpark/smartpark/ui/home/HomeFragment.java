@@ -645,7 +645,7 @@ TextView tv_last_checkin_office,tv_last_checkin_precinct,tv_last_hnadover,tv_off
             holder.tv_plate_no.setText("Number Plate : "+siteManagerModel.getPlateNo());
             holder.tv_bay_no.setText(siteManagerModel.getBayNo());
 
-            if(siteManagerModel.getStatus().equalsIgnoreCase("unpaid")){
+            if(siteManagerModel.getStatus().equalsIgnoreCase("notpaid")){
                 holder.tv_view.setBackground(context.getResources().getDrawable(R.drawable.rectangle_red_small));
                 holder.iv_car.setImageDrawable(context.getResources().getDrawable(R.drawable.car_red));
                 holder.tv_bay_no.setTextColor(context.getResources().getColor(R.color.red1));
@@ -653,7 +653,12 @@ TextView tv_last_checkin_office,tv_last_checkin_precinct,tv_last_hnadover,tv_off
                 holder.tv_view.setBackground(context.getResources().getDrawable(R.drawable.rectangle_green_small));
                 holder.iv_car.setImageDrawable(context.getResources().getDrawable(R.drawable.car_green));
                 holder.tv_bay_no.setTextColor(context.getResources().getColor(R.color.green));
+            }else if(siteManagerModel.getStatus().equalsIgnoreCase("unpaid")){
+                holder.tv_view.setBackground(context.getResources().getDrawable(R.drawable.orange_icon));
+                holder.iv_car.setImageDrawable(context.getResources().getDrawable(R.drawable.car_red));
+                holder.tv_bay_no.setTextColor(context.getResources().getColor(R.color.orange));
             }
+
 
 
             holder.tv_view.setOnClickListener(new View.OnClickListener() {

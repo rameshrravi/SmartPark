@@ -90,6 +90,7 @@ public class ParCarActivity extends AppCompatActivity {
     String zimCurrency = "", randsCurrency = "", botswanaCurrency = "";
     ParkingDetailsModel parkingDetailsModel1 = new ParkingDetailsModel();
     String s_hours = "";
+    String status = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -401,7 +402,7 @@ public class ParCarActivity extends AppCompatActivity {
 
                 if (!s_number_plate1.isEmpty()) {
                     if (!s_parking_bay_number1.isEmpty()) {
-                        showAlertDialogfornotpaid("Do you want to confirm ?","paid");
+                        showAlertDialogfornotpaid("Do you want to confirm ?", "paid");
 
                     } else {
                         showAlertDialog("Please enter parking bay number");
@@ -432,7 +433,7 @@ public class ParCarActivity extends AppCompatActivity {
                 if (!s_number_plate1.isEmpty()) {
                     if (!s_parking_bay_number1.isEmpty()) {
 
-                        showAlertDialogfornotpaid("Do you want to confirm ?","unpaid");
+                        showAlertDialogfornotpaid("Do you want to confirm ?", "unpaid");
 
                     } else {
                         showAlertDialog("Please enter parking bay number");
@@ -806,11 +807,17 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                                         DateFormat df1 = new SimpleDateFormat("hh:mm a");
                                         final String currentTime = df.format(Calendar.getInstance().getTime());
                                         final String currentTime1 = df1.format(Calendar.getInstance().getTime());
+                                        if (parkingDetailsModel1.getStatus().equals("notpaid") || parkingDetailsModel1.getStatus().equals("notpaid")) {
+                                            et_end_date.setText(parkingDetailsModel1.getEnddateformat() + " - " + parkingDetailsModel1.getEnddateformat());
+                                            tv_update.setVisibility(View.GONE);
+                                            text_unpaid_car_park.setVisibility(View.GONE);
+                                            et_amount_collected.setText(parkingFee);
+                                            et_amount_owed.setText(parkingFee);
+                                        } else {
+                                            s_end_date = currentDate + " " + currentTime;
 
+                                            et_end_date.setText(currentDate1 + " - " + currentTime1);
 
-                                        s_end_date = currentDate + " " + currentTime;
-
-                                        et_end_date.setText(currentDate1 + " - " + currentTime1);
 
                                         int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
                                         System.out.println("dateDifference: " + dateDifference);
@@ -825,6 +832,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                                             et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                                             et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                                         }
+                                    }
 
                                     }
 
@@ -1040,7 +1048,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                 MyData.put("amount_owned", s_amount_owed);
                 MyData.put("token", token);
                 MyData.put("datetime", currentDate + " " + currentTime);
-
+                Log.i("update_carparking",MyData.toString());
                 return MyData;
             }
         };
@@ -1280,7 +1288,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
             } else if (siteManagerModel.getStatus().equalsIgnoreCase("paid")) {
                 holder.tv_status.setText("Paid");
                 holder.tv_status.setTextColor(context.getResources().getColor(R.color.green));
-            }else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
+            } else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
                 holder.tv_status.setText("Not Paid");
                 holder.tv_status.setTextColor(context.getResources().getColor(R.color.red));
             }
@@ -1333,7 +1341,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                             et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                             et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
                         }
-                    }else if(siteManagerModel.getStatus().equalsIgnoreCase("notpaid")){
+                    } else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
                         tv_update.setVisibility(View.GONE);
                         text_unpaid_car_park.setVisibility(View.GONE);
                         et_start_date.setText(siteManagerModel.getDateTime());
@@ -1428,7 +1436,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
         super.onBackPressed();
     }
 
-    public void showAlertDialogfornotpaid(String message,String status) {
+    public void showAlertDialogfornotpaid(String message, String status) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ParCarActivity.this);
         alertDialogBuilder.setMessage(message);
         alertDialogBuilder.setTitle("Smart Park");
@@ -1445,7 +1453,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-dialogInterface.dismiss();
+                dialogInterface.dismiss();
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
