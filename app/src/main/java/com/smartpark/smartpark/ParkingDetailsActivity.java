@@ -112,7 +112,6 @@ public class ParkingDetailsActivity extends AppCompatActivity {
                                             parkingDetailsModel=new ParkingDetailsModel();
                                             parkingDetailsModel.setId(jsonObject1.getString("id"));
                                             parkingDetailsModel.setDateTime(jsonObject1.getString("datetime"));
-                                            parkingDetailsModel.setDateFormat(jsonObject1.getString("dateformat"));
                                             parkingDetailsModel.setTimeFormat(jsonObject1.getString("timeformat"));
                                             parkingDetailsModel.setPlateNo(jsonObject1.getString("plateno"));
                                             parkingDetailsModel.setBayNo(jsonObject1.getString("bayno"));
@@ -120,7 +119,13 @@ public class ParkingDetailsActivity extends AppCompatActivity {
                                             parkingDetailsModel.setPhoneNo(jsonObject1.getString("phoneno"));
                                             parkingDetailsModel.setEmailID(jsonObject1.getString("email"));
                                             parkingDetailsModel.setStatus(jsonObject1.getString("status"));
-
+                                            parkingDetailsModel.setDateFormat(jsonObject1.getString("datetimeformat"));
+                                            parkingDetailsModel.setEndtimeformat(jsonObject1.getString("endtimeformat"));
+                                            parkingDetailsModel.setEnddateformat(jsonObject1.getString("datetimeformatend"));
+                                            parkingDetailsModel.setType(jsonObject1.getString("type"));
+                                            parkingDetailsModel.setValid_until(jsonObject1.getString("valid_until"));
+                                            parkingDetailsModel.setAmount_collect_USD(jsonObject1.getString("amount_collect_USD"));
+                                            parkingDetailsModel.setAmount_owned(jsonObject1.getString("amount_owned"));
                                             parkingDetailsModelList.add(parkingDetailsModel);
                                         }
 
@@ -167,7 +172,7 @@ public class ParkingDetailsActivity extends AppCompatActivity {
 
                 MyData.put("parking_marshal_id", parkingMarshalID);
                 MyData.put("token", token);
-
+Log.i("ajdhjh",MyData.toString());
                 return MyData;
             }
         };

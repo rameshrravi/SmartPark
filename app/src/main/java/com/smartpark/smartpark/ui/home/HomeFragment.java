@@ -273,7 +273,7 @@ TextView tv_last_checkin_office,tv_last_checkin_precinct,tv_last_hnadover,tv_off
                                             parkingDetailsModel=new ParkingDetailsModel();
                                             parkingDetailsModel.setId(jsonObject1.getString("id"));
                                             parkingDetailsModel.setDateTime(jsonObject1.getString("datetime"));
-                                            parkingDetailsModel.setDateFormat(jsonObject1.getString("dateformat"));
+                                            parkingDetailsModel.setDateFormat(jsonObject1.getString("datetimeformat"));
                                             parkingDetailsModel.setTimeFormat(jsonObject1.getString("timeformat"));
                                             parkingDetailsModel.setPlateNo(jsonObject1.getString("plateno"));
                                             parkingDetailsModel.setBayNo(jsonObject1.getString("bayno"));
@@ -281,6 +281,12 @@ TextView tv_last_checkin_office,tv_last_checkin_precinct,tv_last_hnadover,tv_off
                                             parkingDetailsModel.setPhoneNo(jsonObject1.getString("phoneno"));
                                             parkingDetailsModel.setEmailID(jsonObject1.getString("email"));
                                             parkingDetailsModel.setStatus(jsonObject1.getString("status"));
+                                            parkingDetailsModel.setEndtimeformat(jsonObject1.getString("endtimeformat"));
+                                            parkingDetailsModel.setEnddateformat(jsonObject1.getString("datetimeformatend"));
+                                            parkingDetailsModel.setType(jsonObject1.getString("type"));
+                                            parkingDetailsModel.setValid_until(jsonObject1.getString("valid_until"));
+                                            parkingDetailsModel.setAmount_collect_USD(jsonObject1.getString("amount_collect_USD"));
+                                            parkingDetailsModel.setAmount_owned(jsonObject1.getString("amount_owned"));
 
 
                                             parkingDetailsModelList.add(parkingDetailsModel);

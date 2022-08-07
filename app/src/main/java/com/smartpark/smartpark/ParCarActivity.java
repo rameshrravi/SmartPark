@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -30,6 +31,8 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -91,12 +94,25 @@ public class ParCarActivity extends AppCompatActivity {
     ParkingDetailsModel parkingDetailsModel1 = new ParkingDetailsModel();
     String s_hours = "";
     String status = "";
-
+    RadioButton radioButton;
+    RadioButton radiopostpaid1;
+    RadioButton radioprepaid1, radioprepaid;
+    RadioGroup radioGroup;
+    RadioGroup radioGroup1;
+    LinearLayout linear_hours;
+    ImageView pluse, minus;
+    TextView txt_count,valid_until,valid_until1;
+    int convert=0;
+    LinearLayout linearPaid,linearunpaid;
+    TextView text_paid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_par_car);
 
+        text_paid = findViewById(R.id.text_paid);
+        linearPaid = findViewById(R.id.linearPaid);
+        linearunpaid = findViewById(R.id.linearunpaid);
         layoutCarPark = findViewById(R.id.layout_add_park_car);
         layoutViewCarPark = findViewById(R.id.layout_view_car_park);
         layoutUpdateCarPark = findViewById(R.id.layout_update_car_park);
@@ -115,7 +131,17 @@ public class ParCarActivity extends AppCompatActivity {
         et_amount_collected = findViewById(R.id.edittext_amount_to_be_collected);
         et_currency = findViewById(R.id.edittext_currency);
         et_amount_owed = findViewById(R.id.edittext_amount_owed);
-
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
+        radiopostpaid1 = (RadioButton) findViewById(R.id.radiopostpaid1);
+        radioprepaid1 = (RadioButton) findViewById(R.id.radioprepaid1);
+        radioprepaid = (RadioButton) findViewById(R.id.radioprepaid);
+        linear_hours = (LinearLayout) findViewById(R.id.linear_hours);
+        pluse = (ImageView) findViewById(R.id.pluse);
+        minus = (ImageView) findViewById(R.id.minus);
+        txt_count = (TextView) findViewById(R.id.txt_count);
+        valid_until = (TextView) findViewById(R.id.valid_until);
+        valid_until1 = (TextView) findViewById(R.id.valid_until1);
 
         tv_submit = findViewById(R.id.text_submit_car_park);
         tv_update = findViewById(R.id.text_update_car_park);
@@ -135,8 +161,59 @@ public class ParCarActivity extends AppCompatActivity {
         parkingDetailsModel1 = (ParkingDetailsModel) getIntent().getSerializableExtra("ParkingDetail");
 
         getPriceDetail();
+        radioprepaid1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                linear_hours.setVisibility(View.GONE);
+                et_end_date.setVisibility(View.VISIBLE);
 
+            }
+        });
+        radiopostpaid1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+linear_hours.setVisibility(View.VISIBLE);
+et_end_date.setVisibility(View.GONE);
 
+            }
+        });
+
+        pluse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String count = txt_count.getText().toString();
+                int cont = Integer.valueOf(count);
+                if (cont >= 1 || cont >= 24) {
+                    cont = cont + 1;
+                    txt_count.setText(String.valueOf(cont));
+                    //convert=Integer.valueOf(convrtstr);
+                    s_hours = String.valueOf(cont);
+                    int finalcont= convert+cont;
+                    valid_until.setText(String.valueOf(finalcont));
+                    et_amount_collected.setText(String.valueOf(cont * Double.valueOf(parkingFee)));
+                    et_amount_owed.setText(String.valueOf(cont * Double.valueOf(parkingFee)));
+                }
+            }
+        });
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String count = txt_count.getText().toString();
+                int cont = Integer.valueOf(count);
+                if (cont > 1 || cont > 24) {
+                    cont = cont - 1;
+                    txt_count.setText(String.valueOf(cont));
+                    txt_count.setText(String.valueOf(cont));
+                    //convert=Integer.valueOf(convrtstr);
+                    int finalcont= convert+cont;
+                    s_hours = String.valueOf(cont);
+                    et_amount_collected.setText(String.valueOf(cont * Double.valueOf(parkingFee)));
+                    et_amount_owed.setText(String.valueOf(cont * Double.valueOf(parkingFee)));
+                    valid_until.setText(String.valueOf(finalcont));
+                }
+            }
+        });
         cashOptionsList.add("USD");
         cashOptionsList.add("Zim $");
         cashOptionsList.add("Rands");
@@ -659,6 +736,8 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
     }
 
     public void addParkCar() {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
         final ProgressDialog pDialog = new ProgressDialog(ParCarActivity.this);
         pDialog.setMessage("Adding..");
         pDialog.setCancelable(false);
@@ -737,7 +816,9 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                 MyData.put("phoneno", s_phone_number);
                 MyData.put("email", s_email_id);
                 MyData.put("token", token);
+                MyData.put("type", radioButton.getText().toString().toLowerCase());
                 MyData.put("datetime", currentDate + " " + currentTime);
+                Log.i("carparking_add", MyData.toString());
                 return MyData;
             }
         };
@@ -796,7 +877,7 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                                         et_country_code1.setText(parkingDetailsModel1.getCountryCode());
                                         et_phone_number1.setText(parkingDetailsModel1.getPhoneNo());
                                         et_email_id1.setText(parkingDetailsModel1.getEmailID());
-                                        et_start_date.setText(parkingDetailsModel1.getDateFormat() + " - " + parkingDetailsModel1.getTimeFormat());
+                                        et_start_date.setText(parkingDetailsModel1.getDateFormat());
                                         s_start_date = parkingDetailsModel1.getDateTime();
 
                                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -807,32 +888,97 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                                         DateFormat df1 = new SimpleDateFormat("hh:mm a");
                                         final String currentTime = df.format(Calendar.getInstance().getTime());
                                         final String currentTime1 = df1.format(Calendar.getInstance().getTime());
-                                        if (parkingDetailsModel1.getStatus().equals("notpaid") || parkingDetailsModel1.getStatus().equals("notpaid")) {
-                                            et_end_date.setText(parkingDetailsModel1.getEnddateformat() + " - " + parkingDetailsModel1.getEnddateformat());
-                                            tv_update.setVisibility(View.GONE);
-                                            text_unpaid_car_park.setVisibility(View.GONE);
-                                            et_amount_collected.setText(parkingFee);
-                                            et_amount_owed.setText(parkingFee);
+                                        if (parkingDetailsModel1.getType().equalsIgnoreCase("postpaid")) {
+                                            et_end_date.setVisibility(View.VISIBLE);
+                                            radioprepaid1.setChecked(false);
+                                            radiopostpaid1.setChecked(true);
+                                            linear_hours.setVisibility(View.GONE);
+                                            et_end_date.setEnabled(false);
+                                            et_start_date.setEnabled(false);
+                                           /* String splitz[]=parkingDetailsModel1.getTimeFormat().split(":");
+                                            String convrtstr=splitz[0].toString();
+                                            convert=Integer.valueOf(convrtstr);
+                                           int finalcont= convert+1;*/
+                                            //valid_until.setText(String.valueOf(finalcont));
+                                            if (parkingDetailsModel1.getStatus().equals("notpaid") || parkingDetailsModel1.getStatus().equals("paid")) {
+                                                et_end_date.setText(parkingDetailsModel1.getEnddateformat());
+                                                tv_update.setVisibility(View.GONE);
+                                                text_unpaid_car_park.setVisibility(View.GONE);
+                                                et_amount_collected.setText(parkingFee);
+                                                et_amount_owed.setText(parkingFee);
+                                                linearPaid.setVisibility(View.VISIBLE);
+                                                linearunpaid.setVisibility(View.GONE);
+                                                text_paid.setText(parkingDetailsModel1.getType());
+                                                valid_until1.setText("Valid until "+parkingDetailsModel1.getValid_until());
+                                                et_amount_collected.setText(parkingDetailsModel1.getAmount_collect_USD());
+                                                et_amount_owed.setText(parkingDetailsModel1.getAmount_owned());
+
+                                            } else {
+                                                linearPaid.setVisibility(View.GONE);
+                                                linearunpaid.setVisibility(View.VISIBLE);
+                                                s_end_date = currentDate + " " + currentTime;
+
+                                                et_end_date.setText(currentDate1 + " - " + currentTime1);
+
+
+                                                int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
+                                                System.out.println("dateDifference: " + dateDifference);
+                                                System.out.println("dateDifference: " + parkingFee);
+
+                                                if (dateDifference == 0) {
+
+                                                    et_amount_collected.setText(parkingFee);
+                                                    et_amount_owed.setText(parkingFee);
+
+                                                } else {
+                                                    et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                                    et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                                }
+                                            }
                                         } else {
-                                            s_end_date = currentDate + " " + currentTime;
+                                            et_end_date.setVisibility(View.GONE);
+                                            radioprepaid1.setChecked(true);
+                                            radiopostpaid1.setChecked(false);
+                                            et_end_date.setEnabled(false);
+                                            if (parkingDetailsModel1.getStatus().equals("notpaid") || parkingDetailsModel1.getStatus().equals("paid")) {
+                                                et_end_date.setText(parkingDetailsModel1.getEnddateformat());
+                                                tv_update.setVisibility(View.GONE);
+                                                text_unpaid_car_park.setVisibility(View.GONE);
+                                                et_amount_collected.setText(parkingFee);
+                                                et_amount_owed.setText(parkingFee);
+                                                linearPaid.setVisibility(View.VISIBLE);
+                                                linear_hours.setVisibility(View.GONE);
+                                                linearunpaid.setVisibility(View.GONE);
+                                                et_start_date.setEnabled(false);
+                                                text_paid.setText(parkingDetailsModel1.getType());
+                                                valid_until1.setText("Valid until "+parkingDetailsModel1.getValid_until());
+                                                et_amount_collected.setText(parkingDetailsModel1.getAmount_collect_USD());
+                                                et_amount_owed.setText(parkingDetailsModel1.getAmount_owned());
+                                            } else {
+                                                linearunpaid.setVisibility(View.VISIBLE);
+                                                linear_hours.setVisibility(View.VISIBLE);
+                                                linearPaid.setVisibility(View.GONE);
+                                                s_end_date = currentDate + " " + currentTime;
 
-                                            et_end_date.setText(currentDate1 + " - " + currentTime1);
+                                                et_end_date.setText(currentDate1 + " - " + currentTime1);
 
 
-                                        int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
-                                        System.out.println("dateDifference: " + dateDifference);
-                                        System.out.println("dateDifference: " + parkingFee);
+                                                int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
+                                                System.out.println("dateDifference: " + dateDifference);
+                                                System.out.println("dateDifference: " + parkingFee);
 
-                                        if (dateDifference == 0) {
+                                                if (dateDifference == 0) {
 
-                                            et_amount_collected.setText(parkingFee);
-                                            et_amount_owed.setText(parkingFee);
+                                                    et_amount_collected.setText(parkingFee);
+                                                    et_amount_owed.setText(parkingFee);
 
-                                        } else {
-                                            et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
-                                            et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                                } else {
+                                                    et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                                    et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                                }
+                                            }
                                         }
-                                    }
+
 
                                     }
 
@@ -957,6 +1103,8 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
     }
 
     public void updateParkCar(String status) {
+        int selectedId = radioGroup1.getCheckedRadioButtonId();
+        radiopostpaid1 = (RadioButton) findViewById(selectedId);
         final ProgressDialog pDialog = new ProgressDialog(ParCarActivity.this);
         pDialog.setMessage("Updating..");
         pDialog.setCancelable(false);
@@ -1047,8 +1195,9 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                 MyData.put("hours", s_hours);
                 MyData.put("amount_owned", s_amount_owed);
                 MyData.put("token", token);
+                MyData.put("type", radiopostpaid1.getText().toString().toLowerCase());
                 MyData.put("datetime", currentDate + " " + currentTime);
-                Log.i("update_carparking",MyData.toString());
+                Log.i("update_carparking", MyData.toString());
                 return MyData;
             }
         };
@@ -1190,8 +1339,10 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                                             parkingDetailsModel.setAmount_owned(parkingObject.getString("amount_owned"));
                                             parkingDetailsModel.setCurrency(parkingObject.getString("currency"));
                                             parkingDetailsModel.setEmailID(parkingObject.getString("email"));
-                                            if (parkingObject.getString("status").equals("paid")) {
-                                                parkingDetailsModel.setEnddateformat(parkingObject.getString("enddatetime"));
+                                            parkingDetailsModel.setType(parkingObject.getString("type"));
+                                            parkingDetailsModel.setValid_until(parkingObject.getString("valid_until"));
+                                            if (parkingObject.getString("status").equals("paid") || parkingObject.getString("status").equals("notpaid")) {
+                                                parkingDetailsModel.setEnddateformat(parkingObject.getString("datetimeformatend"));
                                             }
                                             parkingDetailsModelList.add(parkingDetailsModel);
 
@@ -1328,30 +1479,103 @@ int today_day = today_cal.get(Calendar.DAY_OF_MONTH);
                     int dateDifference = (int) get_count_of_days(s_start_date, s_end_date);
                     System.out.println("dateDifference: " + dateDifference);
                     System.out.println("dateDifference: " + parkingFee);
-                    if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")) {
-                        tv_update.setVisibility(View.VISIBLE);
-                        text_unpaid_car_park.setVisibility(View.VISIBLE);
-                        et_currency.setText("USD");
-                        if (dateDifference == 0) {
 
+                    if (siteManagerModel.getType().equalsIgnoreCase("prepaid")) {
+                        radioprepaid1.setChecked(true);
+                        radiopostpaid1.setChecked(false);
+                        et_end_date.setEnabled(false);
+                        et_end_date.setVisibility(View.GONE);
+                        if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")) {
+                            linearunpaid.setVisibility(View.VISIBLE);
+                            linear_hours.setVisibility(View.VISIBLE);
+                            linearPaid.setVisibility(View.GONE);
+                            tv_update.setVisibility(View.VISIBLE);
+                            text_unpaid_car_park.setVisibility(View.VISIBLE);
+                            et_currency.setText("USD");
+                            valid_until1.setVisibility(View.GONE);
+                            if (dateDifference == 0) {
+
+                                et_amount_collected.setText(parkingFee);
+                                et_amount_owed.setText(parkingFee);
+
+                            } else {
+                                et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                            }
+                        } else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")||siteManagerModel.getStatus().equalsIgnoreCase("paid")) {
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
+                            et_start_date.setText(siteManagerModel.getDateFormat());
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
+
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
                             et_amount_collected.setText(parkingFee);
                             et_amount_owed.setText(parkingFee);
-
+                            linearPaid.setVisibility(View.VISIBLE);
+                            linear_hours.setVisibility(View.GONE);
+                            linearunpaid.setVisibility(View.GONE);
+                            et_start_date.setEnabled(false);
+                            text_paid.setText(siteManagerModel.getType());
+                            valid_until1.setVisibility(View.VISIBLE);
+                            valid_until1.setText("Valid until "+siteManagerModel.getValid_until());
+                            et_amount_collected.setText(siteManagerModel.getAmount_collect_USD());
+                            et_amount_owed.setText(siteManagerModel.getAmount_owned());
                         } else {
-                            et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
-                            et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
+                            et_start_date.setText(siteManagerModel.getDateFormat());
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
                         }
-                    } else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")) {
-                        tv_update.setVisibility(View.GONE);
-                        text_unpaid_car_park.setVisibility(View.GONE);
-                        et_start_date.setText(siteManagerModel.getDateTime());
-                        et_end_date.setText(siteManagerModel.getEnddateformat());
                     } else {
-                        tv_update.setVisibility(View.GONE);
-                        text_unpaid_car_park.setVisibility(View.GONE);
-                        et_start_date.setText(siteManagerModel.getDateTime());
-                        et_end_date.setText(siteManagerModel.getEnddateformat());
+                        radioprepaid1.setChecked(false);
+                        radiopostpaid1.setChecked(true);
+                        linear_hours.setVisibility(View.GONE);
+                        et_end_date.setEnabled(false);
+                        et_start_date.setEnabled(false);
+                        et_end_date.setVisibility(View.VISIBLE);
+                        if (siteManagerModel.getStatus().equalsIgnoreCase("unpaid")) {
+                            valid_until1.setVisibility(View.GONE);
+                            linearPaid.setVisibility(View.GONE);
+                            linearunpaid.setVisibility(View.VISIBLE);
+                            tv_update.setVisibility(View.VISIBLE);
+                            text_unpaid_car_park.setVisibility(View.VISIBLE);
+                            et_currency.setText("USD");
+                            if (dateDifference == 0) {
+
+                                et_amount_collected.setText(parkingFee);
+                                et_amount_owed.setText(parkingFee);
+
+                            } else {
+                                et_amount_collected.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                                et_amount_owed.setText(String.valueOf(dateDifference * Double.valueOf(parkingFee)));
+                            }
+                        } else if (siteManagerModel.getStatus().equalsIgnoreCase("notpaid")||siteManagerModel.getStatus().equalsIgnoreCase("paid")) {
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
+                            et_start_date.setText(siteManagerModel.getDateFormat());
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
+                            et_amount_collected.setText(parkingFee);
+                            et_amount_owed.setText(parkingFee);
+                            linearPaid.setVisibility(View.VISIBLE);
+                            linearunpaid.setVisibility(View.GONE);
+                            text_paid.setText(siteManagerModel.getType());
+                            valid_until1.setVisibility(View.VISIBLE);
+                            valid_until1.setText("Valid until "+siteManagerModel.getValid_until());
+                            et_amount_collected.setText(siteManagerModel.getAmount_collect_USD());
+                            et_amount_owed.setText(siteManagerModel.getAmount_owned());
+                        } else {
+                            tv_update.setVisibility(View.GONE);
+                            text_unpaid_car_park.setVisibility(View.GONE);
+                            et_start_date.setText(siteManagerModel.getDateFormat());
+                            et_end_date.setText(siteManagerModel.getEnddateformat());
+                        }
                     }
+
 
 
                 }

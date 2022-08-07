@@ -4,29 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParCarActivity"
     android:background="#F7F7F7"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ParCarActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="8dp"
+        android:orientation="horizontal"
 
-        android:orientation="horizontal">
+        android:padding="8dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/rectangle_back"
             android:gravity="center"
-            android:onClick="backPressed"
-            android:background="@drawable/rectangle_back">
+            android:onClick="backPressed">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/back_arrow"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@drawable/back_arrow" />
 
         </LinearLayout>
 
@@ -45,400 +47,589 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:background="@drawable/rounded_rectangle_white"
         android:gravity="center_vertical"
-        android:background="@drawable/rounded_rectangle_white">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <TextView
+            android:id="@+id/text_new"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="New"
+            android:background="@drawable/rectangle_red"
+            android:fontFamily="@font/lato"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="New"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:id="@+id/text_new"
-            android:fontFamily="@font/lato"
-            android:background="@drawable/rectangle_red"
-            android:layout_margin="5dp"/>
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="View"
+            android:background="@drawable/rectangle_gray"
+            android:fontFamily="@font/lato"
             android:gravity="center"
-            android:id="@+id/text_view"
-            android:textStyle="bold"
+            android:text="View"
             android:textColor="@color/black"
             android:textSize="14sp"
-            android:fontFamily="@font/lato"
-            android:background="@drawable/rectangle_gray"
-            android:layout_margin="5dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
+            android:id="@+id/layout_add_park_car"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_margin="10dp"
-            android:id="@+id/layout_add_park_car"
+            android:background="@color/white"
 
-            android:padding="10dp"
-            android:background="@color/white">
-            <EditText
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Number Plate"
-                android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radiopostpaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:checked="true"
+                        android:text="Postpaid"
+                        android:textSize="16dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioprepaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:checked="false"
+                        android:text="Prepaid"
+                        android:textSize="16dp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <EditText
                 android:id="@+id/edittext_number_plate"
-                android:inputType="text"
-                android:padding="8dp"
-                android:textSize="12sp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Parking Bay No"
+                android:background="@drawable/rounded_rectangle"
                 android:fontFamily="@font/lato"
+                android:hint="Number Plate"
                 android:inputType="text"
-                android:id="@+id/edittext_parking_bay_no"
                 android:padding="8dp"
-                android:textSize="12sp"
-                android:background="@drawable/rounded_rectangle"/>
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/edittext_parking_bay_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_rectangle"
+                android:fontFamily="@font/lato"
+                android:hint="Parking Bay No"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textSize="12sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
+                    android:id="@+id/edittext_country_code"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:hint=""
-                    android:padding="8dp"
-                    android:inputType="phone"
-                    android:text="+263"
-                    android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/edittext_country_code"
                     android:layout_marginTop="10dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/lato"
                     android:layout_marginEnd="20dp"
-                    android:background="@drawable/rounded_rectangle"/>
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="phone"
+                    android:padding="8dp"
+                    android:text="+263"
+                    android:textSize="12sp" />
+
                 <EditText
+                    android:id="@+id/edittext_phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone No."
-                    android:padding="8dp"
-                    android:inputType="number"
-                    android:id="@+id/edittext_phone_number"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/lato"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/rounded_rectangle"/>
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:fontFamily="@font/lato"
+                    android:hint="Phone No."
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textSize="12sp" />
 
             </LinearLayout>
+
             <EditText
+                android:id="@+id/edittext_email_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email ID"
-                android:padding="8dp"
-                android:inputType="textEmailAddress"
                 android:layout_margin="10dp"
-                android:id="@+id/edittext_email_id"
-
-                android:layout_marginBottom="10dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_rectangle"
+
+                android:fontFamily="@font/lato"
+                android:hint="Email ID"
+                android:inputType="textEmailAddress"
+                android:padding="8dp"
+                android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/text_submit_car_park"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/button_primary"
-                android:text="Submit"
-                android:textSize="16sp"
-                android:id="@+id/text_submit_car_park"
-                android:textStyle="bold"
                 android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:text="Submit"
                 android:textColor="@color/white"
-                android:gravity="center"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/layout_view_car_park"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:visibility="gone"
             android:layout_above="@+id/layout_bottom"
-            android:id="@+id/layout_view_car_park"
+            android:layout_margin="10dp"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:background="@color/white">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="4.5">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/table_cell"
                     android:layout_weight="1.5"
+                    android:background="@drawable/table_cell"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
                     android:text="Date &amp; Time"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lato"
                     android:textColor="@color/black"
-                    android:gravity="center"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/table_cell"
                     android:layout_weight="1"
+                    android:background="@drawable/table_cell"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
                     android:text="Plate No"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lato"
                     android:textColor="@color/black"
-                    android:gravity="center"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/table_cell"
                     android:layout_weight="1"
+                    android:background="@drawable/table_cell"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
                     android:text="Bay No"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lato"
                     android:textColor="@color/black"
-                    android:gravity="center"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/table_cell"
                     android:layout_weight="1"
-                    android:text="Status"
-                    android:textStyle="bold"
+                    android:background="@drawable/table_cell"
                     android:fontFamily="@font/lato"
-                    android:textColor="@color/black"
                     android:gravity="center"
-                    android:textSize="11sp"/>
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_park_car_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/recyclerview_park_car_list"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_update_car_park"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:id="@+id/layout_update_car_park"
             android:layout_above="@+id/layout_bottom"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:orientation="vertical"
             android:padding="10dp"
-            android:visibility="gone"
-            android:background="@color/white">
+            android:visibility="gone">
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:id="@+id/linearunpaid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:hint="Number Plate"
-                android:fontFamily="@font/lato"
-                android:inputType="text"
-                android:id="@+id/edittext_number_plate1"
-                android:padding="8dp"
-                android:textSize="12sp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:hint="Parking Bay No"
-                android:id="@+id/edittext_parking_bay_no1"
-                android:inputType="text"
-                android:fontFamily="@font/lato"
-                android:padding="8dp"
-                android:textSize="12sp"
-                android:background="@drawable/rounded_rectangle"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <EditText
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:hint=""
-                    android:padding="8dp"
-                    android:inputType="phone"
-                    android:text="+263"
-                    android:gravity="center"
-                    android:layout_marginBottom="6dp"
-                    android:id="@+id/edittext_country_code1"
-                    android:layout_marginTop="6dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/lato"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/rounded_rectangle"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone No."
-                    android:padding="8dp"
-                    android:inputType="number"
-                    android:id="@+id/edittext_phone_number1"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="6dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/lato"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/rounded_rectangle"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Type"
+                            android:textColor="@color/black" />
 
-            </LinearLayout>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email ID"
-                android:padding="8dp"
-                android:inputType="textEmailAddress"
-                android:id="@+id/edittext_email_id1"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="10dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Start Date &amp; Time"
-                android:padding="8dp"
-                android:inputType="text"
-                android:id="@+id/edittext_start_date"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="10dp"
-                android:editable="false"
-                android:focusable="false"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="End Date &amp; Time"
-                android:padding="8dp"
-                android:id="@+id/edittext_end_date"
-                android:editable="false"
-                android:focusable="false"
-                android:inputType="text"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="10dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Amount to be Collected "
-                android:padding="8dp"
-                android:id="@+id/edittext_amount_to_be_collected"
-                android:inputType="number"
-                android:layout_margin="6dp"
-                android:editable="false"
-                android:focusable="false"
-                android:layout_marginBottom="10dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Currency"
-                android:editable="false"
-                android:focusable="false"
-                android:padding="8dp"
-                android:text="USD"
-                android:id="@+id/edittext_currency"
-                android:inputType="number"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="6dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Amount Owed"
-                android:id="@+id/edittext_amount_owed"
-                android:padding="8dp"
-                android:inputType="number"
-                android:editable="false"
-                android:focusable="false"
-                android:layout_margin="6dp"
-                android:layout_marginBottom="6dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/lato"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_rectangle"/>
+                        <RadioGroup
+                            android:id="@+id/radioGroup1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radiopostpaid1"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="5dp"
+                                android:checked="true"
+                                android:text="Postpaid"
+                                android:textSize="16dp" />
+
+                            <RadioButton
+                                android:id="@+id/radioprepaid1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:checked="false"
+                                android:text="Prepaid"
+
+                                android:textSize="16dp" />
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linearPaid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Type  "
+                            android:textColor="@color/black" />
+
+                       <TextView
+                           android:id="@+id/text_paid"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/edittext_number_plate1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:fontFamily="@font/lato"
+                        android:hint="Number Plate"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_parking_bay_no1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:fontFamily="@font/lato"
+                        android:hint="Parking Bay No"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edittext_country_code1"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:hint=""
+                            android:inputType="phone"
+                            android:padding="8dp"
+                            android:text="+263"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/edittext_phone_number1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:fontFamily="@font/lato"
+                            android:hint="Phone No."
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/edittext_email_id1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:fontFamily="@font/lato"
+                        android:hint="Email ID"
+                        android:inputType="textEmailAddress"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_start_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="Start Date &amp; Time"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_end_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="End Date &amp; Time"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/text_count"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:text="Hour(s)" />
+
+                        <LinearLayout
+                            android:layout_margin="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp">
+
+
+                            <ImageView
+                                android:id="@+id/minus"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+
+                                android:src="@drawable/minus" />
+                            <TextView
+                                android:id="@+id/txt_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="1"
+                                android:textColor="@color/black" />
+                            <ImageView
+                                android:layout_marginLeft="20dp"
+                                android:id="@+id/pluse"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/plus" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Valid Until"></TextView>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/valid_until"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/valid_until1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/edittext_amount_to_be_collected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="Amount to be Collected "
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_currency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="Select Currency"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:text="USD"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_amount_owed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="Amount Owed"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
 
                     <LinearLayout
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <TextView
-                            android:layout_weight="1"
+                            android:id="@+id/text_update_car_park"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_margin="10dp"
-                            android:background="@drawable/button_primary"
-                            android:text="Pay"
-                            android:id="@+id/text_update_car_park"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/lato"
-                            android:textColor="@color/white"
-                            android:gravity="center"/>
-                        <TextView
                             android:layout_weight="1"
+                            android:background="@drawable/button_primary"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:text="Pay"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/text_unpaid_car_park"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
+                            android:layout_weight="1"
                             android:background="@drawable/rectangle_red"
-                            android:text="Not Paid"
-                            android:id="@+id/text_unpaid_car_park"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
                             android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:text="Not Paid"
                             android:textColor="@color/white"
-                            android:gravity="center"/>
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -446,123 +637,124 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="5"
+            android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:gravity="bottom"
+            android:orientation="horizontal"
             android:padding="5dp"
-            android:id="@+id/layout_bottom"
-            android:layout_alignParentBottom="true">
+            android:weightSum="5">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/layout_home"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/home"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Home"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/lato"
-                    />
-            </LinearLayout>
-            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/layout_profile"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/user_icon"/>
+                    android:src="@drawable/home" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:textColor="#677191"
-                    android:textSize="10sp"
                     android:fontFamily="@font/lato"
-                    />
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Home"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp" />
             </LinearLayout>
-            <ImageView
+
+            <LinearLayout
+                android:id="@+id/layout_profile"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/user_icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Profile"
+                    android:textColor="#677191"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_scan"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:id="@+id/image_scan"
-                android:src="@drawable/scan"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:src="@drawable/scan" />
+
+            <LinearLayout
                 android:id="@+id/layout_invoice"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/invoice_icon"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Invoice"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:textColor="#677191"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/lato"
-                    />
-            </LinearLayout>
-            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/layout_logout"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/logout_icon"/>
+                    android:src="@drawable/invoice_icon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:textColor="#677191"
-                    android:textSize="10sp"
                     android:fontFamily="@font/lato"
-                    />
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Invoice"
+                    android:textColor="#677191"
+                    android:textSize="10sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/layout_logout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logout_icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Logout"
+                    android:textColor="#677191"
+                    android:textSize="10sp" />
+            </LinearLayout>
 
 
         </LinearLayout>
 
     </RelativeLayout>
-
-
 
 
 </LinearLayout>
