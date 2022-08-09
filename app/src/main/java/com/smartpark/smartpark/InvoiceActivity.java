@@ -110,6 +110,7 @@ public class InvoiceActivity extends AppCompatActivity {
     String vihicleNod = "";
     String parkingfess = "";
     String vat_amount = "";
+    String currency = "",amountowned="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -476,6 +477,8 @@ public class InvoiceActivity extends AppCompatActivity {
                     startTime = siteManagerModel.getStartdatetimeformat();
                     endDateFormat = siteManagerModel.getEnddateformat();
                     amount_collect_USD = siteManagerModel.getAmount_collect_USD();
+                    currency = siteManagerModel.getCurrency();
+                    amountowned = siteManagerModel.getAmount_owned();
                     precinctt = siteManagerModel.getPrecinct_name();
                     marshal = siteManagerModel.getParking_marshal_name();
                     new Handler().postDelayed(new Runnable() {
@@ -621,7 +624,7 @@ public class InvoiceActivity extends AppCompatActivity {
                         "[C]\n" +
                         "[C]<b>* DISPLAY ON DASHBOARD *</b> \n" +
                         "[L]\n" +
-                        "[L]<b>TICKET VALID ON THIS BAY ONLY</b> \n" +
+                        "[L]<b>Ticket valid till paid time</b> \n" +
                         "[L]\n" +
                         "[C] Bulawayo\n" +
                         "[L]\n" +
@@ -638,10 +641,10 @@ public class InvoiceActivity extends AppCompatActivity {
                         "[C]<b>VEHICLE:"+vihicleNod+"</b>\n" +
                         "[C]<b>BAY NUMBER:"+baynumber+"</b>\n" +
                         "[L]\n" +
-                        "[L]PARKING FEE PAID[R]"+amount_collect_USD+"\n" +
+                        "[L]PARKING FEE PAID[R]"+ currency+" "+amountowned+"\n" +
                         "[L](including VAT) \n" +
                         "[R] -------\n" +
-                        "[L]VAT  [R] US$ 0.00\n" +
+                        "[L]VAT  [R]  0.00\n" +
                         "[L]DATE PURCHASED:"+startTime+"\n" +
                         "[L]\n" +
                         "[L] The Municipality of this town  or any system participants are  not in any way liable  for damage or loss. Any enquiries Complaints or requests can be lodged to \n" +

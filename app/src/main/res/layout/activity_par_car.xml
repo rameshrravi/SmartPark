@@ -597,7 +597,66 @@
                         android:inputType="number"
                         android:padding="8dp"
                         android:textSize="12sp" />
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/paymentTypeLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Type"
+                            android:textColor="@color/black" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupPaymentTpe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radiocash"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="5dp"
+                                android:checked="true"
+                                android:text="Cash"
+                                android:textSize="16dp" />
+
+                            <RadioButton
+                                android:id="@+id/radiortgs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:checked="false"
+                                android:text="RTGS"
+
+                                android:textSize="16dp" />
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/linearpaymentMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:id="@+id/text_paymenttype"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
                     <LinearLayout
 
                         android:layout_width="match_parent"

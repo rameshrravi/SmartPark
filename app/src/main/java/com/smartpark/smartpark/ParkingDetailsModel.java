@@ -26,6 +26,7 @@ public class ParkingDetailsModel implements Serializable {
     String supervisor_name;
     String type;
     String valid_until;
+    String payment_type;
 
     public String getAmount() {
         return amount;
@@ -221,5 +222,13 @@ public class ParkingDetailsModel implements Serializable {
 
     public void setValid_until(String valid_until) {
         this.valid_until = valid_until;
+    }
+
+    public String getPayment_type() {
+        return payment_type;
+    }
+
+    public void setPayment_type(String payment_type) {
+        this.payment_type = payment_type;
     }
 }

@@ -287,6 +287,7 @@ TextView tv_last_checkin_office,tv_last_checkin_precinct,tv_last_hnadover,tv_off
                                             parkingDetailsModel.setValid_until(jsonObject1.getString("valid_until"));
                                             parkingDetailsModel.setAmount_collect_USD(jsonObject1.getString("amount_collect_USD"));
                                             parkingDetailsModel.setAmount_owned(jsonObject1.getString("amount_owned"));
+                                            parkingDetailsModel.setPayment_type(jsonObject1.getString("payment_type"));
 
 
                                             parkingDetailsModelList.add(parkingDetailsModel);
