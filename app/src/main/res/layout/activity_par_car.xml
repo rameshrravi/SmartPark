@@ -50,7 +50,7 @@
         android:background="@drawable/rounded_rectangle_white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/text_new"
@@ -58,11 +58,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@drawable/rectangle_red"
+            android:background="@drawable/rectangle_gray"
             android:fontFamily="@font/lato"
             android:gravity="center"
             android:text="New"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -79,11 +79,29 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_red"
+
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/relativelauout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:id="@+id/layout_add_park_car"
@@ -361,6 +379,7 @@
                                 android:textSize="16dp" />
                         </RadioGroup>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/linearPaid"
                         android:layout_width="match_parent"
@@ -375,11 +394,12 @@
                             android:text="Type  "
                             android:textColor="@color/black" />
 
-                       <TextView
-                           android:id="@+id/text_paid"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/text_paid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
+
                     <EditText
                         android:id="@+id/edittext_number_plate1"
                         android:layout_width="match_parent"
@@ -503,9 +523,9 @@
                             android:text="Hour(s)" />
 
                         <LinearLayout
-                            android:layout_margin="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
                             android:layout_marginLeft="10dp">
 
 
@@ -515,6 +535,7 @@
                                 android:layout_height="16dp"
 
                                 android:src="@drawable/minus" />
+
                             <TextView
                                 android:id="@+id/txt_count"
                                 android:layout_width="wrap_content"
@@ -522,33 +543,36 @@
                                 android:layout_marginLeft="20dp"
                                 android:text="1"
                                 android:textColor="@color/black" />
+
                             <ImageView
-                                android:layout_marginLeft="20dp"
                                 android:id="@+id/pluse"
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
+                                android:layout_marginLeft="20dp"
                                 android:src="@drawable/plus" />
 
                         </LinearLayout>
 
                         <TextView
-                            android:visibility="gone"
-                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Valid Until"></TextView>
+                            android:layout_marginTop="10dp"
+                            android:text="Valid Until"
+                            android:visibility="gone"></TextView>
 
                         <TextView
-                            android:visibility="gone"
                             android:id="@+id/valid_until"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
                     </LinearLayout>
+
                     <TextView
-                        android:layout_marginLeft="5dp"
                         android:id="@+id/valid_until1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp" />
+
                     <EditText
                         android:id="@+id/edittext_amount_to_be_collected"
                         android:layout_width="match_parent"
@@ -597,14 +621,15 @@
                         android:inputType="number"
                         android:padding="8dp"
                         android:textSize="12sp" />
+
                     <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/paymentTypeLinear"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -641,22 +666,23 @@
                                 android:textSize="16dp" />
                         </RadioGroup>
                     </LinearLayout>
+
                     <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/linearpaymentMode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
 
                         <TextView
                             android:id="@+id/text_paymenttype"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
+
                     <LinearLayout
 
                         android:layout_width="match_parent"
@@ -815,5 +841,336 @@
 
     </RelativeLayout>
 
+
+
+    <LinearLayout
+
+        android:id="@+id/searchLinearview"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/edtPlateNo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_rectangle"
+                android:hint="Type No Plate"
+                android:imeOptions="actionDone"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_primary"
+                android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:text="Search"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linearCurrentBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_currentbooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:padding="5dp"
+                android:text="Current Booking Details"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_container"
+                    android:orientation="horizontal"
+                    android:weightSum="5.5">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.2"
+                        android:text="Bay No"
+                        android:textStyle="bold"
+                        android:id="@+id/text_date_time"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.1"
+                        android:text="Start Time"
+                        android:id="@+id/text_plate_no"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.1"
+                        android:text="End Time"
+                        android:textStyle="bold"
+                        android:id="@+id/text_bay_no"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1"
+                        android:text="Amount"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1"
+                        android:text="Action"
+                        android:textStyle="bold"
+                        android:id="@+id/text_status"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/current_booking_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linearUnpaidBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_unpaidbookigdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:padding="5dp"
+                android:text="Unpaid Booking Details"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5.5">
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.2"
+                        android:text="Bay No"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.1"
+                        android:maxLines="1"
+                        android:text="Start Time"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1.1"
+                        android:text="End Time"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1"
+                        android:text="Amount"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_cell"
+                        android:layout_weight="1"
+                        android:text="Action"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="9sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/unpaid_booking_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:id="@+id/linearNotBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_notbookigdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:padding="5dp"
+                android:text="NotPaid Booking Details"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5.5">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1.2"
+                    android:text="Bay No"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="9sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1.1"
+                    android:text="Start Time"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="9sp"/>
+                <TextView
+                    android:maxLines="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1.1"
+                    android:text="End Time"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="9sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1"
+                    android:text="Amount"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="9sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_cell"
+                    android:layout_weight="1"
+                    android:text="Action"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="9sp"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notpaid_booking_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

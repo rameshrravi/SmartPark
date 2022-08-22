@@ -246,6 +246,7 @@ Boolean isSiteManagerLogin=false;
                 MyData.put("password", s_password);
                 MyData.put("fcm_token", token);
                 MyData.put("reg_datetime", currentDate+" "+currentTime);
+                Log.i("pointe",MyData.toString());
                 return MyData;
             }
         };

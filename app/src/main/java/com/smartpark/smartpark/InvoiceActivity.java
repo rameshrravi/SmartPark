@@ -110,7 +110,7 @@ public class InvoiceActivity extends AppCompatActivity {
     String vihicleNod = "";
     String parkingfess = "";
     String vat_amount = "";
-    String currency = "",amountowned="";
+    String currency = "",amountowned="",currency_symbol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -353,6 +353,7 @@ public class InvoiceActivity extends AppCompatActivity {
                                             parkingDetailsModel.setHours(jsonObject1.getString("hours"));
                                             parkingDetailsModel.setAmount_collect_USD(jsonObject1.getString("amount_collect_USD"));
                                             parkingDetailsModel.setCurrency(jsonObject1.getString("currency"));
+                                            parkingDetailsModel.setCurrency_symbol(jsonObject1.getString("currency_symbol"));
                                             parkingDetailsModel.setAmount_owned(jsonObject1.getString("amount_owned"));
                                             parkingDetailsModel.setParking_marshal_name(jsonObject1.getString("parking_marshal_name"));
                                             parkingDetailsModel.setPrecinct_name(jsonObject1.getString("precinct_name"));
@@ -478,6 +479,7 @@ public class InvoiceActivity extends AppCompatActivity {
                     endDateFormat = siteManagerModel.getEnddateformat();
                     amount_collect_USD = siteManagerModel.getAmount_collect_USD();
                     currency = siteManagerModel.getCurrency();
+                    currency_symbol = siteManagerModel.getCurrency_symbol();
                     amountowned = siteManagerModel.getAmount_owned();
                     precinctt = siteManagerModel.getPrecinct_name();
                     marshal = siteManagerModel.getParking_marshal_name();
@@ -624,7 +626,7 @@ public class InvoiceActivity extends AppCompatActivity {
                         "[C]\n" +
                         "[C]<b>* DISPLAY ON DASHBOARD *</b> \n" +
                         "[L]\n" +
-                        "[L]<b>Ticket valid till paid time</b> \n" +
+                        "[L]<b>TICKET VALID TILL PAID TIME</b> \n" +
                         "[L]\n" +
                         "[C] Bulawayo\n" +
                         "[L]\n" +
@@ -641,7 +643,7 @@ public class InvoiceActivity extends AppCompatActivity {
                         "[C]<b>VEHICLE:"+vihicleNod+"</b>\n" +
                         "[C]<b>BAY NUMBER:"+baynumber+"</b>\n" +
                         "[L]\n" +
-                        "[L]PARKING FEE PAID[R]"+ currency+" "+amountowned+"\n" +
+                        "[L]PARKING FEE PAID[R]"+ currency_symbol+" "+amountowned+"\n" +
                         "[L](including VAT) \n" +
                         "[R] -------\n" +
                         "[L]VAT  [R]  0.00\n" +

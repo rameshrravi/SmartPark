@@ -27,6 +27,7 @@ public class ParkingDetailsModel implements Serializable {
     String type;
     String valid_until;
     String payment_type;
+    String currency_symbol;
 
     public String getAmount() {
         return amount;
@@ -230,5 +231,13 @@ public class ParkingDetailsModel implements Serializable {
 
     public void setPayment_type(String payment_type) {
         this.payment_type = payment_type;
+    }
+
+    public String getCurrency_symbol() {
+        return currency_symbol;
+    }
+
+    public void setCurrency_symbol(String currency_symbol) {
+        this.currency_symbol = currency_symbol;
     }
 }

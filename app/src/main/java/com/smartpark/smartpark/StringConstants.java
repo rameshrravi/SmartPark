@@ -12,7 +12,7 @@ public class StringConstants {
 
    // public static String mainUrl="https://demosmartpark.caploc.io/mapiv2/index.php";
     //public static String mainUrl="https://smartpark.caploc.io/mapiv2/";
-    public static String mainUrl="http://smartpark.caploc.io/mapiv3/";
+    public static String mainUrl="https://smartpark.caploc.io/mapiv3/";
     public static String loginUrl="index.php";
     public static String getAccessTokenUrl="get_token.php?";
 
@@ -24,7 +24,7 @@ public class StringConstants {
     public static String prefFirstName ="FirstName";
     public static String prefLastName ="LastName";
     public static String prefMobileNumber ="MobileNumber";
-    public static String prefLogoutPin ="LogoutPin";
+     public static String prefLogoutPin ="LogoutPin";
     public static String prefSupervisorLoginID ="SupervisorLoginID";
     public static String prefSupervisorName ="SupervisorName";
     public static String prefPassword ="Password";
