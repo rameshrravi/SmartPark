@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -59,7 +60,7 @@ public class NFCWriteFragment extends DialogFragment {
     }
 
     public void onNfcDetected(Ndef ndef, String messageToWrite){
-
+        Toast.makeText(getContext(), "First", Toast.LENGTH_SHORT).show();
         mProgress.setVisibility(View.VISIBLE);
         writeToNfc(ndef,messageToWrite);
     }
@@ -74,6 +75,7 @@ public class NFCWriteFragment extends DialogFragment {
                 NdefRecord mimeRecord = NdefRecord.createMime("text/plain", message.getBytes(Charset.forName("US-ASCII")));
                 ndef.writeNdefMessage(new NdefMessage(mimeRecord));
                 ndef.close();
+                Toast.makeText(getActivity(), "third", Toast.LENGTH_SHORT).show();
                 //Write Successful
                 mTvMessage.setText(getString(R.string.message_write_success));
 

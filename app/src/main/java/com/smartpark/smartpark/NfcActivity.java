@@ -68,6 +68,7 @@ public class NfcActivity extends AppCompatActivity implements Listener{
     public static final String TAG = "NfcDemo";
     String longitude="0.0",latitude="0.0";
     GpsTracker gpsTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -596,7 +597,7 @@ initNFC();
         }) {
             protected Map<String, String> getParams() {
                 Map<String, String> MyData = new HashMap<String, String>();
-                MyData.put("method", "nfc_scan_details");
+                MyData.put("method", "manualbayentry");
                 MyData.put("datetime", currentDate+" "+currentTime);
 
                 MyData.put("parking_marshal_id", parkingMarshalID);
@@ -606,6 +607,7 @@ initNFC();
                 MyData.put("token", token);
                 MyData.put("type", "occupied");
                 MyData.put("bay_id", bayID);
+                MyData.put("mode", "Manual");
 
                 return MyData;
             }
@@ -653,17 +655,17 @@ initNFC();
                 }
             }*/
 
+        super.onNewIntent(intent);
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        Log.d(TAG, "onNewIntent: " + intent.getAction());
 
-        Log.d(TAG, "onNewIntent: "+intent.getAction());
-
-        if(tag != null) {
+        if (tag != null) {
             Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
             Ndef ndef = Ndef.get(tag);
 
             if (isDialogDisplayed) {
 
-                mNfcReadFragment = (NFCReadFragment)getSupportFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
+                mNfcReadFragment = (NFCReadFragment) getSupportFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
                 mNfcReadFragment.onNfcDetected(ndef);
             }
         }
@@ -680,9 +682,10 @@ initNFC();
         IntentFilter[] nfcIntentFilter = new IntentFilter[]{techDetected,tagDetected,ndefDetected};
 
         PendingIntent pendingIntent = PendingIntent.getActivity(
-                this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+                this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK), 0);
         if(mNfcAdapter!= null)
             mNfcAdapter.enableForegroundDispatch(this, pendingIntent, nfcIntentFilter, null);
+
 
     }
     @Override

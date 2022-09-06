@@ -57,7 +57,7 @@ public class ScanActivity extends AppCompatActivity implements Listener{
 
 
 
-      //  handleIntent(getIntent());
+       // handleIntent(getIntent());
     }
     private void initViews() {
 
@@ -269,25 +269,26 @@ public class ScanActivity extends AppCompatActivity implements Listener{
                 }
             }*/
 
+        super.onNewIntent(intent);
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
-        Log.d(TAG, "onNewIntent: "+intent.getAction());
-
-        if(tag != null) {
+        Log.d(TAG, "onNewIntent: " + intent.getAction());
+        Toast.makeText(this, "OutsideTag", Toast.LENGTH_SHORT).show();
+        if (tag != null) {
             Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
             Ndef ndef = Ndef.get(tag);
 
             if (isDialogDisplayed) {
 
                 if (isWrite) {
-
+                    Toast.makeText(getApplicationContext(), "write", Toast.LENGTH_SHORT).show();
                     String messageToWrite = mEtMessage.getText().toString();
                     mNfcWriteFragment = (NFCWriteFragment) getSupportFragmentManager().findFragmentByTag(NFCWriteFragment.TAG);
-                    mNfcWriteFragment.onNfcDetected(ndef,messageToWrite);
+                    mNfcWriteFragment.onNfcDetected(ndef, messageToWrite);
 
                 } else {
-
-                    mNfcReadFragment = (NFCReadFragment)getSupportFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
+                    Toast.makeText(getApplicationContext(), "Nowrite", Toast.LENGTH_SHORT).show();
+                    mNfcReadFragment = (NFCReadFragment) getSupportFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
                     mNfcReadFragment.onNfcDetected(ndef);
                 }
             }

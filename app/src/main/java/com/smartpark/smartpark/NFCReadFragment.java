@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
+import android.nfc.Tag;
+import android.nfc.tech.MifareClassic;
+import android.nfc.tech.MifareUltralight;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.util.Log;
@@ -101,10 +104,11 @@ public class NFCReadFragment extends DialogFragment {
     public void onNfcDetected(Ndef ndef){
 
         readFromNFC(ndef);
+        byte[] payload = detectTagData(ndef.getTag()).getBytes();
     }
 
-    private void readFromNFC(Ndef ndef) {
-
+    /*private void readFromNFC(Ndef ndef) {
+        Toast.makeText(getActivity(), "Nowrite1", Toast.LENGTH_SHORT).show();
         try {
             ndef.connect();
             NdefMessage ndefMessage = ndef.getNdefMessage();
@@ -112,12 +116,48 @@ public class NFCReadFragment extends DialogFragment {
             Log.d(TAG, "readFromNFC: "+message);
             mTvMessage.setText(message);
             ndef.close();
-            longitude = String.valueOf(gpsTracker.getLongitude());
-            latitude = String.valueOf(gpsTracker.getLatitude());
+            if(gpsTracker.getLongitude()!=0.0){
+                longitude = String.valueOf(gpsTracker.getLongitude());
+            }
+            if(gpsTracker.getLatitude()!=0.0){
+                latitude = String.valueOf(gpsTracker.getLatitude());
+            }
             Log.d(TAG, "Latitude : "+latitude);
             getRecentActivities(message);
 
         } catch (IOException | FormatException e) {
+            e.printStackTrace();
+
+        }
+    } */
+
+    private void readFromNFC(Ndef ndef) {
+        try {
+            //ndef.connect();
+            //NdefMessage ndefMessage = ndef.getNdefMessage();
+            //String message = new String(ndefMessage.getRecords()[0].getPayload());
+            //Log.d(TAG, "readFromNFC: "+message);
+            byte[] payload = ndef.getCachedNdefMessage().getRecords()[0].getPayload();
+            String textEncoding = ((payload[0] & 0200) == 0) ? "UTF-8" : "UTF-16";
+
+//Get the Language Code
+            int languageCodeLength = payload[0] & 0077;
+            String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
+
+//Get the Text
+            String text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
+            mTvMessage.setText(text);
+           // ndef.close();
+            if(gpsTracker.getLongitude()!=0.0){
+                longitude = String.valueOf(gpsTracker.getLongitude());
+            }
+            if(gpsTracker.getLatitude()!=0.0){
+                latitude = String.valueOf(gpsTracker.getLatitude());
+            }
+            Log.d(TAG, "Latitude : "+latitude);
+            getRecentActivities(text);
+
+        } catch (IOException  e) {
             e.printStackTrace();
 
         }
@@ -202,7 +242,8 @@ public class NFCReadFragment extends DialogFragment {
                 MyData.put("token", token);
                 MyData.put("type", "empty");
                 MyData.put("bay_id", bayID);
-
+                MyData.put("mode", "NFC");
+                Log.i("PrintData",MyData.toString());
                 return MyData;
             }
         };
@@ -226,5 +267,127 @@ public class NFCReadFragment extends DialogFragment {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
+    private String detectTagData(Tag tag) {
+        StringBuilder sb = new StringBuilder();
+        byte[] id = tag.getId();
+        sb.append("ID (hex): ").append(toHex(id)).append('\n');
+        sb.append("ID (reversed hex): ").append(toReversedHex(id)).append('\n');
+        sb.append("ID (dec): ").append(toDec(id)).append('\n');
+        sb.append("ID (reversed dec): ").append(toReversedDec(id)).append('\n');
 
+        String prefix = "android.nfc.tech.";
+        sb.append("Technologies: ");
+        for (String tech : tag.getTechList()) {
+            sb.append(tech.substring(prefix.length()));
+            sb.append(", ");
+        }
+
+        sb.delete(sb.length() - 2, sb.length());
+
+        for (String tech : tag.getTechList()) {
+            if (tech.equals(MifareClassic.class.getName())) {
+                sb.append('\n');
+                String type = "Unknown";
+
+                try {
+                    MifareClassic mifareTag = MifareClassic.get(tag);
+
+                    switch (mifareTag.getType()) {
+                        case MifareClassic.TYPE_CLASSIC:
+                            type = "Classic";
+                            break;
+                        case MifareClassic.TYPE_PLUS:
+                            type = "Plus";
+                            break;
+                        case MifareClassic.TYPE_PRO:
+                            type = "Pro";
+                            break;
+                    }
+                    sb.append("Mifare Classic type: ");
+                    sb.append(type);
+                    sb.append('\n');
+
+                    sb.append("Mifare size: ");
+                    sb.append(mifareTag.getSize() + " bytes");
+                    sb.append('\n');
+
+                    sb.append("Mifare sectors: ");
+                    sb.append(mifareTag.getSectorCount());
+                    sb.append('\n');
+
+                    sb.append("Mifare blocks: ");
+                    sb.append(mifareTag.getBlockCount());
+                } catch (Exception e) {
+                    sb.append("Mifare classic error: " + e.getMessage());
+                }
+            }
+
+            if (tech.equals(MifareUltralight.class.getName())) {
+                sb.append('\n');
+                MifareUltralight mifareUlTag = MifareUltralight.get(tag);
+                String type = "Unknown";
+                switch (mifareUlTag.getType()) {
+                    case MifareUltralight.TYPE_ULTRALIGHT:
+                        type = "Ultralight";
+                        break;
+                    case MifareUltralight.TYPE_ULTRALIGHT_C:
+                        type = "Ultralight C";
+                        break;
+                }
+                sb.append("Mifare Ultralight type: ");
+                sb.append(type);
+            }
+        }
+        Log.v("test",sb.toString());
+        return sb.toString();
+    }
+    private String toHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = bytes.length - 1; i >= 0; --i) {
+            int b = bytes[i] & 0xff;
+            if (b < 0x10)
+                sb.append('0');
+            sb.append(Integer.toHexString(b));
+            if (i > 0) {
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+    }
+
+    private String toReversedHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < bytes.length; ++i) {
+            if (i > 0) {
+                sb.append(" ");
+            }
+            int b = bytes[i] & 0xff;
+            if (b < 0x10)
+                sb.append('0');
+            sb.append(Integer.toHexString(b));
+        }
+        return sb.toString();
+    }
+
+    private long toDec(byte[] bytes) {
+        long result = 0;
+        long factor = 1;
+        for (int i = 0; i < bytes.length; ++i) {
+            long value = bytes[i] & 0xffl;
+            result += value * factor;
+            factor *= 256l;
+        }
+        return result;
+    }
+
+    private long toReversedDec(byte[] bytes) {
+        long result = 0;
+        long factor = 1;
+        for (int i = bytes.length - 1; i >= 0; --i) {
+            long value = bytes[i] & 0xffl;
+            result += value * factor;
+            factor *= 256l;
+        }
+        return result;
+    }
 }
